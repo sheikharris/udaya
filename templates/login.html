@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>login</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style media="screen">
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: url('{% static 'img\airportlist.jpg' %}')  no-repeat;
+      background-size: cover;
+    }
+    </style>
+  </head>
+  <body >
+
+<div class="login-box">
+  <h1>Login</h1>
+  <form class="" action="login" method="post">
+
+    {% csrf_token %}
+
+  <div class="textbox">
+    <i class="fas fa-user"></i>
+    <input type="text"  name="username" placeholder="Username">
+  </div>
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" name="password" placeholder="Password">
+  </div>
+  <div class="textbox">
+    {% for message in messages %}
+       <p>{{message}}</p>
+    {% endfor %}
+
+  </div>
+
+  <input type="submit" class="btn" value="login in">
+  <a type="button" class="btn" href="signup">New User ?</a>
+</div>
+
+</form>
+
+  </body>
+</html>
